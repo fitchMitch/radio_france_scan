@@ -3,7 +3,7 @@ class RepositoriesController < ApplicationController
   #
   # All queries MUST be assigned to constants and therefore be statically
   # defined. Queries MUST NOT be generated at request time.
-  IndexQuery = GitHub::Client.parse <<-'GRAPHQL'
+  IndexQuery = RadioFranceScan::Client.parse <<-'GRAPHQL'
     # All read requests are defined in a "query" operation
     query {
       # viewer is the currently authenticated User
@@ -37,7 +37,7 @@ class RepositoriesController < ApplicationController
 
 
   # Define query for "Show more repositories..." AJAX action.
-  MoreQuery = GitHub::Client.parse <<-'GRAPHQL'
+  MoreQuery = RadioFranceScan::Client.parse <<-'GRAPHQL'
     # This query uses variables to accept an "after" param to load the next
     # 10 repositories.
     query($after: String!) {
@@ -65,7 +65,7 @@ class RepositoriesController < ApplicationController
 
 
   # Define query for repository show page.
-  ShowQuery = GitHub::Client.parse <<-'GRAPHQL'
+  ShowQuery = RadioFranceScan::Client.parse <<-'GRAPHQL'
     # Query is parameterized by a $id variable.
     query($id: ID!) {
       # Use global id Node lookup
@@ -118,7 +118,7 @@ class RepositoriesController < ApplicationController
     end
   end
 
-  StarMutation = GitHub::Client.parse <<-'GRAPHQL'
+  StarMutation = RadioFranceScan::Client.parse <<-'GRAPHQL'
     mutation($id: ID!) {
       star(input: { starrableId: $id }) {
         starrable {
@@ -146,7 +146,7 @@ class RepositoriesController < ApplicationController
     end
   end
 
-  UnstarMutation = GitHub::Client.parse <<-'GRAPHQL'
+  UnstarMutation = RadioFranceScan::Client.parse <<-'GRAPHQL'
     mutation($id: ID!) {
       unstar(input: { starrableId: $id }) {
         starrable {

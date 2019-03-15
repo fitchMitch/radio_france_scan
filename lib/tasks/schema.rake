@@ -4,8 +4,8 @@ namespace :schema do
   #
   # An offline copy of the schema allows queries to be typed checked statically
   # before even sending a request.
-  desc "Update GitHub GraphQL schema"
+  desc "Update RadioFranceScan GraphQL schema"
   task :update do
-    GraphQL::Client.dump_schema(GitHub::HTTPAdapter, "db/schema.json")
+    GraphQL::Client.dump_schema(RadioFranceScan::HTTPAdapter, "db/schema.json")
   end
 end
