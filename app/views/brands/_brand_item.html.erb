@@ -1,0 +1,23 @@
+<li class="list-group-item">
+
+  <h3 class='undecorated'>
+    <%= link_to  brand.liveStream, target: '_blank' do %>
+      <i class="fas fa-headphones-alt green"></i>
+    <% end %> |
+    <%= link_to brand.websiteUrl do %>
+      <i class="fas fa-mobile-alt"></i>
+      <i class="fas fa-desktop"></i>
+     <% end %>
+    | <%= brand.title %>
+  </h3>
+  <p>
+    <strong>
+      <%= brand.baseline %>
+    </strong>
+  </p>
+  <p>
+    <%= brand.description %> En savoir plus ...
+  </p>
+  <%# NOTE: total_count is snake case here %>
+
+</li>

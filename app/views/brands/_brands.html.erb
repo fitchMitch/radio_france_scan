@@ -37,9 +37,10 @@
 
 <% if brands.page_info.has_next_page? %>
   <li class="list-group-item show-more">
-    <a class="js-load-more" href="<%= more_brands_path(after: brands.edges.last.cursor) %>">
+    <!-- <a class="js-load-more" href="<%= more_brands_path(after: brands.edges.last.cursor) %>">
       Show more brands...
-    </a>
+    </a> -->
     <span class="octicon octicon-sync spinner"></span>
   </li>
+  <p>Egalement disponibles le live</p>
 <% end %>

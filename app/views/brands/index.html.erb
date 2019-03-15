@@ -18,7 +18,7 @@
   fragment Viewer on User {
     # Initially, fetch the first 10 brands. We'll show a "load more"
     # button to demostrate GraphQL connection cursors.
-    brands(first: 10) {
+    brands(first: 5) {
       # The only data we're using directly in this template is the total number
       # of brands. Also note that its camelcase here.
       totalCount
@@ -26,7 +26,7 @@
       # Include data dependencies of app/views/brands/_brands.html.erb
       # All renders in this template will map to a fragment spread to
       # statically define the view composition relationship.
-      ...Views::Brands::Brands::BrandConnection
+      # ...Views::Brands::Brands::BrandConnection
     }
   }
 %>
@@ -44,21 +44,15 @@
      `viewer.brands` is a full set of data, but only `total_count` is
      exposed to this template since thats all we explicitly defined.
 %>
-<% viewer = Views::Brands::Index::Viewer.new(viewer) %>
+<!-- <--% brands = Views::Brands::Index::Viewer.new(brands) %> -->
 
+<h2>
+  Chaines de Radio France: <span class="badge"><%= brands.size %></span>
+</h2>
 <div class="brands">
   <ul class="list-group">
-    <li class="list-group-item">
-      <strong>Your brands</strong>
-      <%# NOTE: total_count is snake case here %>
-      <span class="badge"><%= viewer.brands.total_count %></span>
-    </li>
-
-    <%#
-      render brands subview passing along viewer.brands
-      See that Views::Brands::Brands::BrandConnection is
-      declared in our static fragment.
-    %>
-    <%= render "brands/brands", brands: viewer.brands %>
+    <% brands.each do |brand| %>
+      <%= render 'brands/brand_item', brand: brand %>
+    <%end%>
   </ul>
 </div>

@@ -72,6 +72,12 @@ body {
   animation-timing-function: linear;
   padding-left: 4px;
 }
+.green{
+  color: green;
+}
+h3.undecorated{
+  text-decoration: none
+}
 
 @keyframes spin {
   from {
