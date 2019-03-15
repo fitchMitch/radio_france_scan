@@ -1,0 +1,19 @@
+<%graphql
+  fragment Brand on Brand {
+    id
+    viewerHasStarred
+    stargazers {
+      totalCount
+    }
+  }
+%>
+<% brand = Views::Brands::Star::Brand.new(brand) %>
+
+<span class="star-badge">
+  <%= brand.stargazers.total_count %>
+  <%= form_tag brand.viewer_has_starred? ? unstar_brand_path(brand.id) : star_brand_path(brand.id), method: :put, class: "star-form" do %>
+    <button>
+      <span class="octicon octicon-star <% if brand.viewer_has_starred? %>highlight<% end %>"></span>
+    </button>
+  <% end %>
+</span>

@@ -1,4 +1,4 @@
-function loadMoreRepositories(link) {
+function loadMoreBrands(link) {
   var container = link.parentElement;
   container.classList.add('loading');
 
@@ -34,7 +34,7 @@ document.addEventListener('submit', function(e) {
 document.addEventListener('click', function(e) {
   var loadMoreLink = e.target.closest('.js-load-more')
   if (loadMoreLink) {
-    loadMoreRepositories(loadMoreLink)
+    loadMoreBrands(loadMoreLink)
     e.preventDefault()
   }
 })

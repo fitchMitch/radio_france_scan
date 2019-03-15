@@ -1,0 +1,24 @@
+<%graphql
+  fragment Brand on Brand {
+    id
+    owner {
+      login
+    }
+    name
+    stargazers {
+      totalCount
+    }
+    ...Views::Brands::Icon::Brand
+    ...Views::Brands::Star::Brand
+  }
+%>
+<% brand = Views::Brands::ListItem::Brand.new(brand) %>
+
+<li class="list-group-item">
+  <%= render "brands/star", brand: brand %>
+  <%= render "brands/icon", brand: brand %>
+
+  <a href="<%= brand_path(brand.id) %>">
+    <%= brand.owner.login %>/<%= brand.name %>
+  </a>
+</li>

@@ -1,6 +1,6 @@
 # RadioFranceScan GraphQL Rails example application
 
-Demonstrates how to use the [`graphql-client`](http://github.com/github/graphql-client) gem to build a simple repository listing web view against the [RadioFranceScan GraphQL API](https://developer.github.com/v4/guides/intro-to-graphql/).
+Demonstrates how to use the [`graphql-client`](http://github.com/github/graphql-client) gem to build a simple brand listing web view against the [RadioFranceScan GraphQL API](https://developer.github.com/v4/guides/intro-to-graphql/).
 
 <img width="365" src="https://cloud.githubusercontent.com/assets/137/18425026/a9929d7a-78f0-11e6-9fd4-f478470ad10b.png">
 
@@ -10,10 +10,10 @@ The application structure is setup like a typical Rails app using controllers, v
 
 Jump right into the code and read the inline documentation. The following is a suggested reading order:
 
-1. [app/controller/repositories_controller.rb](https://github.com/github/github-graphql-rails-example/blob/master/app/controllers/repositories_controller.rb) defines the top level GraphQL queries to fetch repository list and show pages.
-2. [app/views/repositories/index.html.erb](https://github.com/github/github-graphql-rails-example/blob/master/app/views/repositories/index.html.erb) shows the root template's listing query and composition over subviews.
-3. [app/views/repositories/_repositories.html.erb]( https://github.com/github/github-graphql-rails-example/blob/master/app/views/repositories/_repositories.html.erb) makes use of GraphQL connections to show the first couple items and a "load more" button.
-4. [app/views/repositories/show.html.erb](https://github.com/github/github-graphql-rails-example/blob/master/app/views/repositories/show.html.erb) shows the root template for the repository show page.
+1. [app/controller/brands_controller.rb](https://github.com/github/github-graphql-rails-example/blob/master/app/controllers/brands_controller.rb) defines the top level GraphQL queries to fetch brand list and show pages.
+2. [app/views/brands/index.html.erb](https://github.com/github/github-graphql-rails-example/blob/master/app/views/brands/index.html.erb) shows the root template's listing query and composition over subviews.
+3. [app/views/brands/_brands.html.erb]( https://github.com/github/github-graphql-rails-example/blob/master/app/views/brands/_brands.html.erb) makes use of GraphQL connections to show the first couple items and a "load more" button.
+4. [app/views/brands/show.html.erb](https://github.com/github/github-graphql-rails-example/blob/master/app/views/brands/show.html.erb) shows the root template for the brand show page.
 5.  [app/controller/application_controller.rb](https://github.com/github/github-graphql-rails-example/blob/master/app/controllers/application_controller.rb) defines controller helpers for executing GraphQL query requests.
 6. [config/application.rb](https://github.com/github/github-graphql-rails-example/blob/master/config/application.rb) configures `GraphQL::Client` to point to the RadioFranceScan GraphQL endpoint.
 
