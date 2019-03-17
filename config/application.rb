@@ -9,18 +9,13 @@ require "graphql/client/http"
 Bundler.require(*Rails.groups)
 
 module RadioFranceScan
-  class Application < Rails::Application
-  end
+  class Application < Rails::Application; end
   radio_france_url = 'https://openapi.radiofrance.fr/v1/graphql?x-token='
   access_token = Application.secrets.radio_france_access_token
   HTTPAdapter = GraphQL::Client::HTTP.new("#{radio_france_url}#{access_token}") do
     def headers(context)
-      token = context[:access_token] || Application.secrets.radio_france_access_token
-      if token.nil?
-        # $ GITHUB_ACCESS_TOKEN=abc123 bin/rails server
-        #   https://help.github.com/articles/creating-an-access-token-for-command-line-use
-        fail "Missing RadioFranceScan access token"
-      end
+      token = context[:'x-token'] || Application.secrets.radio_france_access_token
+      fail "Missing RadioFranceScan access token" if token.nil?
 
       { "x-token" => token }
     end
