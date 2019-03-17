@@ -20,6 +20,11 @@
     <br>
     En savoir plus ...
   </p>
-  <%# NOTE: total_count is snake case here %>
-
+  <ul>
+    <% unless brand.localRadios.nil?  %>
+      <%  brand.localRadios.each do |radio| %>
+        <%= render 'brands/local_radio', radio: radio  %>
+      <% end %>
+    <% end %>
+  </ul>
 </li>

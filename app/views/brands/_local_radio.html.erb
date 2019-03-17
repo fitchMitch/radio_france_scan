@@ -1,0 +1,15 @@
+<%graphql
+fragment LocalRadio on LocalRadio {
+  title
+  liveStream
+}
+%>
+<% local_radio = Views::Brands::LocalRadio::LocalRadio.new(radio) %>
+
+<li>
+  <%= link_to  local_radio.liveStream do%>
+    <i class="fas fa-headphones-alt green"></i>
+  <% end  %> : <%= local_radio.title %>
+  <br>
+
+</li>
