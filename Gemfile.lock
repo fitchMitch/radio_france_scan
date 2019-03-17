@@ -46,6 +46,7 @@ GEM
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
     builder (3.2.3)
+    byebug (11.0.0)
     coderay (1.1.2)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
@@ -120,6 +121,7 @@ PLATFORMS
 DEPENDENCIES
   better_errors
   binding_of_caller
+  byebug
   graphql (= 1.2.2)
   graphql-client (= 0.2.3)
   rails (~> 5.0.7)
